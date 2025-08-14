@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VanillaGameEngine – Idle & Walk Upload</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Vanilla Engine</h1>
+    <p>A web UI Game engine to quickly check Sprite animations for your games.</p>
+    <p>Upload separate sprite sheets for <strong>Idle</strong> and <strong>Walk</strong>, then move with arrow keys/WASD.</p>
+  </header>
+
+  <section id="controls">
+    <div class="row">
+      <div class="control">
+        <label for="fileIdle">Idle Sprite Sheet (PNG)</label>
+        <input id="fileIdle" type="file" accept="image/png,image/webp,image/jpeg" />
+        <button id="use-sample-idle" title="Load sample idle sprite">Use Sample Idle</button>
+      </div>
+      <div class="control">
+        <label for="fileWalk">Walk Sprite Sheet (PNG)</label>
+        <input id="fileWalk" type="file" accept="image/png,image/webp,image/jpeg" />
+        <button id="use-sample-walk" title="Load sample walk sprite">Use Sample Walk</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="control">
+        <label for="frameW">Frame W</label>
+        <input id="frameW" type="number" value="64" min="1" />
+      </div>
+      <div class="control">
+        <label for="frameH">Frame H</label>
+        <input id="frameH" type="number" value="64" min="1" />
+      </div>
+      <div class="control">
+        <label for="fps">FPS</label>
+        <input id="fps" type="number" value="8" min="1" max="60" />
+      </div>
+      <div class="control">
+        <label for="scale">Scale</label>
+        <input id="scale" type="number" value="3" min="1" max="16" />
+      </div>
+      <div class="control">
+        <label for="speed">Speed (px/s)</label>
+        <input id="speed" type="number" value="180" min="10" max="1000" />
+      </div>
+    </div>
+
+    <div class="row">
+      <button id="apply">Apply Settings</button>
+      <button id="center">Center Player</button>
+      <button id="pause">Pause</button>
+      <span id="meta"></span>
+    </div>
+  </section>
+
+  <main>
+    <canvas id="game" width="800" height="480" tabindex="0" aria-label="Game canvas"></canvas>
+    <aside id="help">
+      <h3>Controls</h3>
+      <ul>
+        <li>Arrow keys or WASD: Move</li>
+        <li>P: Pause/Unpause</li>
+        <li>Click canvas to focus if keys don't respond.</li>
+      </ul>
+      <p class="tip">Tip: Both sprite sheets should have the <strong>same frame size</strong>. Enter Frame W/H and FPS, then click <strong>Apply Settings</strong>.</p>
+    </aside>
+  </main>
+
+  <footer>
+    <a href="https://opensource.org/license/mit">MIT License</a> ·
+    <a href="README.md">README</a>
+  </footer>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
